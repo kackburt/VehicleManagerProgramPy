@@ -150,26 +150,26 @@ def main():
         print("3) Edit mileage of a vehicle")
         print("4) Edit general service date of a vehicle")
         print("5) Delete a vehicle")
-        print("6) Save your vehicle list as txt-file.")
-        print("7) Quit the program.")
+        print("9) Save your vehicle list as txt-file.")
+        print("0) Quit the program.")
         print("")  # empty line
 
-        selection = raw_input("Enter your selection ('1', '2', '3', '4', '5', '6' or '7'): ")
+        selection = raw_input("Enter your selection ('1', '2', '3', '4', '5', '9' or '0'): ")
         print("")  # empty line
 
-        if selection.lower() == "a":
+        if selection == "1":
             list_all_vehicles(vehicles)
-        elif selection.lower() == "b":
+        elif selection == "2":
             add_vehicle(vehicles)
-        elif selection.lower() == "c":
+        elif selection == "3":
             edit_mileage(vehicles)
-        elif selection.lower() == "d":
+        elif selection == "4":
             edit_servicedate(vehicles)
-        elif selection.lower() == "e":
+        elif selection == "5":
             delete_vehicle(vehicles)
-        elif selection.lower() == "s":
+        elif selection == "9":
             save_list(vehicles)
-        elif selection.lower() == "x":
+        elif selection == "0":
             print("Thank you for using Vehicle List. Goodbye!")
             break
         else:
