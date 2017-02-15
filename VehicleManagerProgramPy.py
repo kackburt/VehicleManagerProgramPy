@@ -28,7 +28,7 @@ def list_all_vehicles(vehicles):
         print("") # EMPTY LINE
 
     if not vehicles:
-        print("You don't have any vehicle in your list.")
+        print("### You don't have any vehicle in your list. ###")
 
 
 def add_vehicle(vehicles):
@@ -39,8 +39,8 @@ def add_vehicle(vehicles):
         try:
             kilometers = int(raw_input("Enter the kilometers done so far with the vehicle: "))
         except ValueError:
-            print("/!\ ")  # EMPTY LINE
-            print("Your entry wasn't an integer number. Please try again.")
+            print("### /!\ ###")  # EMPTY LINE
+            print("### Your entry wasn't an integer number. Please try again. ###")
     servicedate = None
     while servicedate is None:
         try:
@@ -53,7 +53,6 @@ def add_vehicle(vehicles):
     vehicles.append(new)
 
     print("") # EMPTY LINE
-    print(new.get_full_name() + " was successfully added to your vehicles list.")
 
 
 def edit_mileage(vehicles):
@@ -69,7 +68,7 @@ def edit_mileage(vehicles):
     new_kilometers = raw_input("Please update the kilometers done so far with the %s: " % selected_vehicle.get_full_name())
     selected_vehicle.edit_km(new_kilometers)
     print("")  # EMPTY LINE
-    print("Kilometers updated.")
+    print("### Kilometers updated. ###")
 
 
 def edit_servicedate(vehicles):
@@ -86,11 +85,11 @@ def edit_servicedate(vehicles):
         try:
             new_servicedate = datetime.datetime.strptime(raw_input("Enter a new general service date of the vehicle %s in the format yyyy-mm-dd: " % selected_vehicle.get_full_name()), "%Y-%m-%d")
         except ValueError:
-            print("/!\ ") # EMPTY LINE
-            print("Your entry didn't have the right format. Please try again.")
+            print("### /!\ ###") # EMPTY LINE
+            print("### Your entry didn't have the right format. Please try again. ###")
     selected_vehicle.edit_servicedate(new_servicedate)
     print("")  # EMPTY LINE
-    print("Service date updated.")
+    print("### Service date updated. ###")
 
 
 def delete_vehicle(vehicles):
@@ -104,7 +103,7 @@ def delete_vehicle(vehicles):
     selected_vehicle = vehicles[int(selected_id)]
     vehicles.remove(selected_vehicle)
     print("")  # EMPTY LINE
-    print("Vehicle deleted.")
+    print("### Vehicle deleted. ###")
 
 
 def save_list(vehicles):
@@ -112,10 +111,10 @@ def save_list(vehicles):
     save_list.write("##############################################################\n")  # write into the txt file
     save_list.write("### VEHICLE LIST ### Timestamp: " + str(datetime.datetime.today()) + " ###\n") # write into the txt file
     save_list.write("##############################################################\n")  # write into the txt file
-    print("/!\ ATTENTION /!\ ")
+    print("### /!\ ATTENTION /!\ ###")
     print("### Vehicles that should be in service soon! ###\n")
     save_list.write("\n")  # write into the txt file
-    save_list.write("/!\ ATTENTION /!\ \n")  # write into the txt file
+    save_list.write("### /!\ ATTENTION /!\ ### \n")  # write into the txt file
     save_list.write("### Vehicles that should be in service soon! ###\n")  # write into the txt file
     for index, car in enumerate(vehicles):
             if datetime.datetime.strptime(car.servicedate, "%Y-%m-%d") <= datetime.datetime.today() + relativedelta(months=2) and datetime.datetime.strptime(car.servicedate, "%Y-%m-%d") >= datetime.datetime.today():
@@ -170,11 +169,11 @@ def main():
         elif selection == "9":
             save_list(vehicles)
         elif selection == "0":
-            print("Thank you for using Vehicle List. Goodbye!")
+            print("### Thank you for using Vehicle List. Goodbye! ###")
             break
         else:
-            print("/!\ ")
-            print("Sorry, your selection wasn't found. Please try again.")
+            print("### /!\ ###")
+            print("### Sorry, your selection wasn't found. Please try again. ###")
             continue
 
 
