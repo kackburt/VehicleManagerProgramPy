@@ -99,8 +99,15 @@ def delete_vehicle(vehicles):
         print(str(index) + ") " + car.get_full_name())
 
     print("") # EMPTY LINE
-    selected_id = raw_input("What vehicles would you like to delete (enter id number): ")
-    selected_vehicle = vehicles[int(selected_id)]
+    selected_id = None
+    while selected_id is None:
+        try:
+            selected_id = raw_input("What vehicles would you like to delete (enter id number): ")
+            selected_vehicle = vehicles[int(selected_id)]
+        except IndexError:
+            selected_id = None
+            print("")  # EMPTY LINE
+            print("### Sorry, your selection wasn't found. Please try again. ###\n")
     vehicles.remove(selected_vehicle)
     print("")  # EMPTY LINE
     print("### Vehicle deleted. ###")
