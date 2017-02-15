@@ -137,9 +137,9 @@ def main():
     print("### Welcome to your Vehicle List ###")
     print("####################################")
 
-    car1 = Vehicle(brand="Volkswagen", model="Crafter", kilometers="40000", servicedate='2017-01-01')
-    car2 = Vehicle(brand="Volkswagen", model="T5", kilometers="99000", servicedate='2017-03-01')
-    car3 = Vehicle(brand="Volkswagen", model="T5", kilometers="88000", servicedate='2017-03-02')
+    car1 = Vehicle(brand="Volkswagen", model="Crafter", kilometers="40000", servicedate=datetime.datetime(2017,01,01))
+    car2 = Vehicle(brand="Volkswagen", model="T5", kilometers="99000", servicedate=datetime.datetime(2017,03,01))
+    car3 = Vehicle(brand="Volkswagen", model="T5", kilometers="88000", servicedate=datetime.datetime(2017,03,02))
     vehicles = [car1, car2, car3]
 
     while True:
